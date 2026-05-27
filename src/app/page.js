@@ -1,110 +1,38 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import axios from "axios";
-import MovieSection from "@/components/MovieSection";
-import { API_KEY, movieEndpoints } from "@/lib/tmdb";
-
-const MOVIE_SECTIONS = [
-  {
-    key: "trending",
-    title: "Peliculas en tendencia",
-    endpoint: movieEndpoints.trending,
-  },
-  {
-    key: "popular",
-    title: "Peliculas populares",
-    endpoint: movieEndpoints.popular,
-  },
-  {
-    key: "topRated",
-    title: "Mejor puntuadas",
-    endpoint: movieEndpoints.topRated,
-  },
-  {
-    key: "nowPlaying",
-    title: "En cartelera",
-    endpoint: movieEndpoints.nowPlaying,
-  },
-  {
-    key: "upcoming",
-    title: "Proximos estrenos",
-    endpoint: movieEndpoints.upcoming,
-  },
-];
+import Link from "next/link";
+import { movieCategories } from "@/lib/tmdb";
 
 export default function Home() {
-  const [sections, setSections] = useState(
-    MOVIE_SECTIONS.reduce((acc, section) => {
-      acc[section.key] = { movies: [], loading: true, error: null };
-      return acc;
-    }, {})
-  );
-
-  useEffect(() => {
-    async function fetchSections() {
-      if (!API_KEY) {
-        setSections((current) =>
-          Object.fromEntries(
-            Object.entries(current).map(([key, value]) => [
-              key,
-              {
-                ...value,
-                loading: false,
-                error: "Falta configurar NEXT_PUBLIC_TMDB_API_KEY.",
-              },
-            ])
-          )
-        );
-        return;
-      }
-
-      await Promise.all(
-        MOVIE_SECTIONS.map(async (section) => {
-          try {
-            setSections((current) => ({
-              ...current,
-              [section.key]: { movies: [], loading: true, error: null },
-            }));
-
-            const response = await axios.get(section.endpoint);
-            setSections((current) => ({
-              ...current,
-              [section.key]: {
-                movies: response.data.results || [],
-                loading: false,
-                error: null,
-              },
-            }));
-          } catch (err) {
-            setSections((current) => ({
-              ...current,
-              [section.key]: {
-                movies: [],
-                loading: false,
-                error: "No se pudieron cargar los datos.",
-              },
-            }));
-          }
-        })
-      );
-    }
-
-    fetchSections();
-  }, []);
-
   return (
     <main className="min-h-screen bg-zinc-50">
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-5 py-10 md:py-14">
+          <p className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            TMDB con Next.js
+          </p>
+          <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-normal text-zinc-950 md:text-5xl">
+            Peliculas organizadas por paginas
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600">
+            Cada acceso del navbar abre una pagina distinta y hace un pedido a
+            su endpoint correspondiente de TMDB.
+          </p>
+        </div>
+      </section>
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-5 py-10">
-        {MOVIE_SECTIONS.map((section) => (
-          <MovieSection
-            key={section.key}
-            title={section.title}
-            movies={sections[section.key]?.movies || []}
-            loading={sections[section.key]?.loading}
-            error={sections[section.key]?.error}
-          />
+      <div className="mx-auto grid w-full max-w-6xl gap-4 px-5 py-10 sm:grid-cols-2 lg:grid-cols-3">
+        {movieCategories.map((category) => (
+          <Link
+            key={category.key}
+            href={`/movies/${category.slug}`}
+            className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          >
+            <h2 className="text-xl font-bold text-zinc-950">
+              {category.title}
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-zinc-600">
+              {category.description}
+            </p>
+          </Link>
         ))}
       </div>
     </main>
