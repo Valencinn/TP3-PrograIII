@@ -8,9 +8,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-paper/15 bg-night/95 shadow-lg shadow-night/15 backdrop-blur">
       <nav className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
-        <Link href="/" className="text-xl font-bold text-zinc-950">
+        <Link href="/" className="text-xl font-bold text-paper">
           TMDB Movies
         </Link>
 
@@ -25,8 +25,8 @@ export default function Navbar() {
                 href={href}
                 className={`shrink-0 rounded-md px-3 py-2 text-sm font-semibold transition ${
                   isActive
-                    ? "bg-zinc-950 text-white"
-                    : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950"
+                    ? "bg-paper text-night shadow-sm"
+                    : "text-paper/75 hover:bg-paper/10 hover:text-paper"
                 }`}
               >
                 {category.title}
@@ -38,4 +38,3 @@ export default function Navbar() {
     </header>
   );
 }
-

@@ -43,17 +43,21 @@ export default function MovieDetailClient({ id }) {
 
   if (loading) {
     return (
-      <main className="mx-auto w-full max-w-6xl px-5 py-10">
-        <LoadingMessage>Cargando pelicula...</LoadingMessage>
+      <main className="min-h-screen bg-paper px-5 py-10">
+        <div className="mx-auto w-full max-w-6xl">
+          <LoadingMessage>Cargando pelicula...</LoadingMessage>
+        </div>
       </main>
     );
   }
 
   if (error) {
     return (
-      <main className="mx-auto w-full max-w-6xl px-5 py-10">
-        <ErrorMessage>{error}</ErrorMessage>
-        <BackLink />
+      <main className="min-h-screen bg-paper px-5 py-10">
+        <div className="mx-auto w-full max-w-6xl">
+          <ErrorMessage>{error}</ErrorMessage>
+          <BackLink />
+        </div>
       </main>
     );
   }
@@ -71,13 +75,13 @@ export default function MovieDetailClient({ id }) {
   const genres = movie.genres?.map((genre) => genre.name).join(", ") || "Sin generos";
 
   return (
-    <main className="min-h-screen bg-zinc-50 text-zinc-950">
+    <main className="min-h-screen bg-paper text-night">
       <section
-        className="border-b border-zinc-200 bg-zinc-900 bg-cover bg-center"
+        className="border-b border-night/10 bg-night bg-cover bg-center"
         style={
           backdrop
             ? {
-                backgroundImage: `linear-gradient(90deg, rgba(9, 9, 11, 0.92), rgba(9, 9, 11, 0.7)), url(${backdrop})`,
+                backgroundImage: `linear-gradient(90deg, rgba(17, 24, 68, 0.95), rgba(75, 86, 148, 0.76)), url(${backdrop})`,
               }
             : undefined
         }
@@ -88,7 +92,7 @@ export default function MovieDetailClient({ id }) {
             alt={`Poster de ${movie.title}`}
             width={220}
             height={330}
-            className="w-full max-w-[220px] rounded-lg border border-white/10 object-cover shadow-2xl"
+            className="w-full max-w-[220px] rounded-lg border border-paper/20 object-cover shadow-2xl shadow-night/40"
           />
           <div className="flex flex-col justify-center gap-5">
             <BackLink light />
@@ -97,10 +101,10 @@ export default function MovieDetailClient({ id }) {
                 {movie.title}
               </h1>
               {movie.tagline ? (
-                <p className="mt-3 text-lg text-zinc-200">{movie.tagline}</p>
+                <p className="mt-3 text-lg text-paper/80">{movie.tagline}</p>
               ) : null}
             </div>
-            <p className="max-w-3xl text-base leading-7 text-zinc-100">
+            <p className="max-w-3xl text-base leading-7 text-paper">
               {movie.overview || "Esta pelicula no tiene descripcion disponible."}
             </p>
           </div>
@@ -154,9 +158,9 @@ export default function MovieDetailClient({ id }) {
 
 function DetailItem({ label, value }) {
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
-      <dt className="text-sm font-medium text-zinc-500">{label}</dt>
-      <dd className="mt-2 text-base font-semibold text-zinc-950">{value}</dd>
+    <div className="rounded-lg border border-night/10 bg-paper-soft p-4 shadow-sm shadow-night/10">
+      <dt className="text-sm font-semibold text-royal">{label}</dt>
+      <dd className="mt-2 text-base font-semibold text-night">{value}</dd>
     </div>
   );
 }
@@ -167,8 +171,8 @@ function BackLink({ light = false }) {
       href="/"
       className={`inline-flex w-fit items-center rounded-md px-3 py-2 text-sm font-semibold transition ${
         light
-          ? "bg-white/10 text-white hover:bg-white/20"
-          : "mt-4 bg-zinc-950 text-white hover:bg-zinc-800"
+          ? "bg-paper/10 text-paper hover:bg-paper/20"
+          : "mt-4 bg-night text-paper hover:bg-royal"
       }`}
     >
       Volver al inicio

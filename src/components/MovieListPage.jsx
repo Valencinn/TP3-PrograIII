@@ -34,16 +34,16 @@ export default function MovieListPage({ category }) {
   }, [category.endpoint]);
 
   return (
-    <main className="min-h-screen bg-zinc-50">
-      <section className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto w-full max-w-6xl px-5 py-8 md:py-12">
-          <p className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
+    <main className="min-h-screen bg-paper text-night">
+      <section className="border-b border-night/10 bg-night">
+        <div className="mx-auto w-full max-w-6xl px-5 py-8 text-paper md:py-12">
+          <p className="text-sm font-semibold uppercase tracking-wide text-mist">
             Endpoint propio de TMDB
           </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-normal text-zinc-950 md:text-5xl">
+          <h1 className="mt-3 text-4xl font-bold tracking-normal md:text-5xl">
             {category.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-paper/75">
             {category.description}
           </p>
         </div>
@@ -60,4 +60,3 @@ export default function MovieListPage({ category }) {
     </main>
   );
 }
-

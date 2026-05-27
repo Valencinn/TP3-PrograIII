@@ -12,8 +12,8 @@ export default function MovieCard({ movie }) {
       : "Sin puntuar";
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-      <div className="relative aspect-[2/3] bg-zinc-100">
+    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-night/10 bg-paper-soft shadow-sm shadow-night/10 transition hover:-translate-y-1 hover:border-royal/40 hover:shadow-lg hover:shadow-night/15">
+      <div className="relative aspect-[2/3] bg-mist/25">
         <Image
           src={poster}
           alt={`Poster de ${movie.title}`}
@@ -24,19 +24,19 @@ export default function MovieCard({ movie }) {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="space-y-2">
-          <h3 className="line-clamp-2 text-base font-semibold text-zinc-950">
+          <h3 className="line-clamp-2 text-base font-semibold text-night transition group-hover:text-royal">
             {movie.title}
           </h3>
-          <p className="text-sm text-zinc-600">
+          <p className="text-sm text-ink-muted">
             Estreno: {movie.release_date || "Sin fecha"}
           </p>
-          <p className="text-sm font-medium text-zinc-800">
+          <p className="text-sm font-semibold text-royal">
             Puntuacion: {rating}
           </p>
         </div>
         <Link
           href={`/movie/${movie.id}`}
-          className="mt-auto inline-flex h-10 items-center justify-center rounded-md bg-zinc-950 px-4 text-sm font-semibold text-white transition hover:bg-zinc-800"
+          className="mt-auto inline-flex h-10 items-center justify-center rounded-md bg-night px-4 text-sm font-semibold text-paper transition hover:bg-royal"
         >
           Ver detalle
         </Link>

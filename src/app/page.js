@@ -3,16 +3,16 @@ import { movieCategories } from "@/lib/tmdb";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-50">
-      <section className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto w-full max-w-6xl px-5 py-10 md:py-14">
-          <p className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
+    <main className="min-h-screen bg-paper text-night">
+      <section className="border-b border-night/10 bg-night">
+        <div className="mx-auto w-full max-w-6xl px-5 py-10 text-paper md:py-14">
+          <p className="text-sm font-semibold uppercase tracking-wide text-mist">
             TMDB con Next.js
           </p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-normal text-zinc-950 md:text-5xl">
+          <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-normal md:text-5xl">
             Peliculas organizadas por paginas
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-paper/75">
             Cada acceso del navbar abre una pagina distinta y hace un pedido a
             su endpoint correspondiente de TMDB.
           </p>
@@ -24,12 +24,12 @@ export default function Home() {
           <Link
             key={category.key}
             href={`/movies/${category.slug}`}
-            className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            className="group rounded-lg border border-night/10 bg-paper-soft p-5 shadow-sm shadow-night/10 transition hover:-translate-y-1 hover:border-royal/40 hover:shadow-lg hover:shadow-night/15"
           >
-            <h2 className="text-xl font-bold text-zinc-950">
+            <h2 className="text-xl font-bold text-night transition group-hover:text-royal">
               {category.title}
             </h2>
-            <p className="mt-3 text-sm leading-6 text-zinc-600">
+            <p className="mt-3 text-sm leading-6 text-ink-muted">
               {category.description}
             </p>
           </Link>
