@@ -2,8 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata = {
-  title: "Peliculas TMDB",
-  description: "App de peliculas con Next.js y TMDB",
+  title: "Frame",
 };
 
 export default function RootLayout({ children }) {

@@ -13,7 +13,7 @@ export default function MovieListPage({ category }) {
   useEffect(() => {
     async function fetchMovies() {
       if (!API_KEY) {
-        setError("Falta configurar NEXT_PUBLIC_TMDB_API_KEY.");
+        setError("Falta configurar api key.");
         setLoading(false);
         return;
       }
@@ -37,9 +37,6 @@ export default function MovieListPage({ category }) {
     <main className="min-h-screen bg-paper text-night">
       <section className="border-b border-night/10 bg-night">
         <div className="mx-auto w-full max-w-6xl px-5 py-8 text-paper md:py-12">
-          <p className="text-sm font-semibold uppercase tracking-wide text-mist">
-            Endpoint propio de TMDB
-          </p>
           <h1 className="mt-3 text-4xl font-bold tracking-normal md:text-5xl">
             {category.title}
           </h1>

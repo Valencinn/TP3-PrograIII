@@ -19,8 +19,8 @@ export const movieCategories = [
   {
     key: "trending",
     slug: "tendencia",
-    title: "Peliculas en tendencia",
-    description: "Peliculas que estan marcando tendencia durante el dia.",
+    title: "Trending",
+    description: "Peliculas mas habladas en el dia.",
     endpoint: movieEndpoints.trending,
   },
   {

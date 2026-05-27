@@ -34,3 +34,11 @@ body {
   background: var(--mist);
   color: var(--night);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-color: var(--mist) var(--night);
+}
