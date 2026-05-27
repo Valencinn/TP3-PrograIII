@@ -15,7 +15,7 @@ export default function Navbar() {
           href="/"
           className="flex w-fit items-center gap-3 text-xl font-bold text-paper"
         >
-          <span className="rounded-full bg-royal/10 px-2 py-1">Frame</span>
+          <span className="rounded-full bg-royal/10 px-2 py-1">Frame</span> 
         </Link>
 
         <div className="flex gap-2 overflow-x-auto pb-1 lg:pb-0">
