@@ -33,9 +33,6 @@ export default function Navbar() {
           href="/"
           className="flex w-fit items-center gap-3 text-paper lg:justify-self-start"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-paper text-sm font-black text-night shadow-lg shadow-black/20">
-            F
-          </span>
           <span className="text-xl font-bold">Frame</span>
         </Link>
 
