@@ -14,22 +14,6 @@
   --line: rgba(234, 224, 207, 0.16);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-night: var(--night);
-  --color-royal: var(--royal);
-  --color-mist: var(--mist);
-  --color-paper: var(--paper);
-  --color-paper-soft: var(--paper-soft);
-  --color-ink-muted: var(--ink-muted);
-  --color-midnight: var(--midnight);
-  --color-surface: var(--surface);
-  --color-line: var(--line);
-  --font-sans: Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Courier New", ui-monospace, monospace;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -56,7 +40,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/*para cambiar el colod de la scrollbar :D*/
+/*para cambiar el colod de la scrollbar*/
 * {
   scrollbar-color: var(--mist) var(--night);
 }
