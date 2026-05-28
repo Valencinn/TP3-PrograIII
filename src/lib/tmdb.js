@@ -57,3 +57,6 @@ export const getMovieCategoryBySlug = (slug) =>
   movieCategories.find((category) => category.slug === slug);
 
 export const getMovieDetailEndpoint = (id) => withApiKey(`/movie/${id}`);
+
+export const getMovieSearchEndpoint = (query) =>
+  `${withApiKey("/search/movie")}&query=${encodeURIComponent(query)}`;

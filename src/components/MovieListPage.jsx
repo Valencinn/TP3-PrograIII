@@ -13,11 +13,14 @@ export default function MovieListPage({ category }) {
   useEffect(() => {
     async function fetchMovies() {
       if (!API_KEY) {
+
+        //si no hay api key, mostramos error
         setError("Falta configurar api key.");
         setLoading(false);
         return;
       }
 
+      //si hay api key probamos la conexion a la api y obtenemos lo pedido en el endpoint
       try {
         setLoading(true);
         setError(null);
@@ -34,10 +37,13 @@ export default function MovieListPage({ category }) {
   }, [category.endpoint]);
 
   return (
-    <main className="min-h-screen bg-paper text-night">
-      <section className="border-b border-night/10 bg-night">
-        <div className="mx-auto w-full max-w-6xl px-5 py-8 text-paper md:py-12">
-          <h1 className="mt-3 text-4xl font-bold tracking-normal md:text-5xl">
+    <main className="min-h-screen text-paper">
+      <section className="border-b border-line bg-midnight/80">
+        <div className="mx-auto w-full max-w-6xl px-5 py-10 text-paper md:py-14">
+          <p className="text-sm font-bold uppercase tracking-wide text-mist">
+            Coleccion
+          </p>
+          <h1 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
             {category.title}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-paper/75">

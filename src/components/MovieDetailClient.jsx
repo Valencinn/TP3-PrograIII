@@ -21,11 +21,14 @@ export default function MovieDetailClient({ id }) {
   useEffect(() => {
     async function fetchMovie() {
       if (!API_KEY) {
-        setError("Falta configurar NEXT_PUBLIC_TMDB_API_KEY.");
+
+        //si no hay api key, mostramos error
+        setError("Falta configurar api key");
         setLoading(false);
         return;
       }
 
+      // si hay api key probamos endpoint
       try {
         setLoading(true);
         setError(null);
@@ -43,7 +46,7 @@ export default function MovieDetailClient({ id }) {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-paper px-5 py-10">
+      <main className="min-h-screen px-5 py-10 text-paper">
         <div className="mx-auto w-full max-w-6xl">
           <LoadingMessage>Cargando pelicula...</LoadingMessage>
         </div>
@@ -53,7 +56,7 @@ export default function MovieDetailClient({ id }) {
 
   if (error) {
     return (
-      <main className="min-h-screen bg-paper px-5 py-10">
+      <main className="min-h-screen px-5 py-10 text-paper">
         <div className="mx-auto w-full max-w-6xl">
           <ErrorMessage>{error}</ErrorMessage>
           <BackLink />
@@ -62,10 +65,12 @@ export default function MovieDetailClient({ id }) {
     );
   }
 
+  //si no hay pelicula no mostramos
   if (!movie) {
     return null;
   }
 
+  //info para mostrar
   const poster = movie.poster_path
     ? `${IMAGE_URL}${movie.poster_path}`
     : "/file.svg";
@@ -75,36 +80,36 @@ export default function MovieDetailClient({ id }) {
   const genres = movie.genres?.map((genre) => genre.name).join(", ") || "Sin generos";
 
   return (
-    <main className="min-h-screen bg-paper text-night">
+    <main className="min-h-screen text-paper">
       <section
-        className="border-b border-night/10 bg-night bg-cover bg-center"
+        className="border-b border-line bg-midnight bg-cover bg-center"
         style={
           backdrop
             ? {
-                backgroundImage: `linear-gradient(90deg, rgba(17, 24, 68, 0.95), rgba(75, 86, 148, 0.76)), url(${backdrop})`,
-              }
+              backgroundImage: `linear-gradient(90deg, rgba(8, 12, 36, 0.96), rgba(8, 12, 36, 0.72), rgba(8, 12, 36, 0.92)), url(${backdrop})`,
+            }
             : undefined
         }
       >
-        <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-10 text-white md:grid-cols-[220px_1fr] md:py-14">
+        <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-10 text-paper md:grid-cols-[240px_1fr] md:py-16">
           <Image
             src={poster}
             alt={`Poster de ${movie.title}`}
-            width={220}
-            height={330}
-            className="w-full max-w-[220px] rounded-lg border border-paper/20 object-cover shadow-2xl shadow-night/40"
+            width={240}
+            height={360}
+            className="w-full max-w-[240px] rounded-lg border border-line object-cover shadow-2xl shadow-black/40"
           />
           <div className="flex flex-col justify-center gap-5">
             <BackLink light />
             <div>
-              <h1 className="text-4xl font-bold tracking-normal md:text-5xl">
+              <h1 className="text-4xl font-black tracking-normal md:text-6xl">
                 {movie.title}
               </h1>
               {movie.tagline ? (
                 <p className="mt-3 text-lg text-paper/80">{movie.tagline}</p>
               ) : null}
             </div>
-            <p className="max-w-3xl text-base leading-7 text-paper">
+            <p className="max-w-3xl text-base leading-7 text-paper/80">
               {movie.overview || "Esta pelicula no tiene descripcion disponible."}
             </p>
           </div>
@@ -144,10 +149,10 @@ export default function MovieDetailClient({ id }) {
           value={
             movie.budget
               ? new Intl.NumberFormat("es-AR", {
-                  style: "currency",
-                  currency: "USD",
-                  maximumFractionDigits: 0,
-                }).format(movie.budget)
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0,
+              }).format(movie.budget)
               : "Sin dato"
           }
         />
@@ -156,24 +161,25 @@ export default function MovieDetailClient({ id }) {
   );
 }
 
+//componente detalle!
 function DetailItem({ label, value }) {
   return (
-    <div className="rounded-lg border border-night/10 bg-paper-soft p-4 shadow-sm shadow-night/10">
-      <dt className="text-sm font-semibold text-royal">{label}</dt>
-      <dd className="mt-2 text-base font-semibold text-night">{value}</dd>
+    <div className="rounded-lg border border-line bg-paper/10 p-4 shadow-xl shadow-black/10">
+      <dt className="text-sm font-semibold text-mist">{label}</dt>
+      <dd className="mt-2 text-base font-semibold text-paper">{value}</dd>
     </div>
   );
 }
 
+//componente paara vooler atras
 function BackLink({ light = false }) {
   return (
     <Link
       href="/"
-      className={`inline-flex w-fit items-center rounded-md px-3 py-2 text-sm font-semibold transition ${
-        light
-          ? "bg-paper/10 text-paper hover:bg-paper/20"
-          : "mt-4 bg-night text-paper hover:bg-royal"
-      }`}
+      className={`inline-flex w-fit items-center rounded-md px-3 py-2 text-sm font-semibold transition ${light
+        ? "bg-paper/10 text-paper hover:bg-paper/20"
+        : "mt-4 bg-paper text-night hover:bg-mist"
+        }`}
     >
       Volver al inicio
     </Link>

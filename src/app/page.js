@@ -4,16 +4,16 @@ import { movieCategories } from "@/lib/tmdb";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-paper text-night">
+    <main className="min-h-screen text-paper">
       <HomeTrending />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-10 md:py-12">
+      <section className="mx-auto w-full max-w-6xl px-5 py-10 md:py-14">
         <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-wide text-royal">
+            <p className="text-sm font-bold uppercase tracking-wide text-mist">
               Explorar
             </p>
-            <h2 className="mt-1 text-3xl font-bold text-night">
+            <h2 className="mt-1 text-3xl font-bold text-paper">
               Categorias de peliculas
             </h2>
           </div>
@@ -24,15 +24,17 @@ export default function Home() {
             <Link
               key={category.key}
               href={`/movies/${category.slug}`}
-              className="group min-h-40 rounded-lg border border-night/10 bg-paper-soft p-5 shadow-sm shadow-night/10 transition hover:-translate-y-1 hover:border-royal/40 hover:bg-white hover:shadow-lg hover:shadow-night/15"
+              className="group min-h-40 rounded-lg border border-line bg-paper/10 p-5 shadow-xl shadow-black/10 outline-none backdrop-blur transition hover:-translate-y-1 hover:border-mist/60 hover:bg-paper/15 focus-visible:ring-2 focus-visible:ring-mist"
             >
               <div className="flex h-full flex-col justify-between gap-6">
-                <span className="h-2 w-12 rounded-full bg-mist transition group-hover:w-16 group-hover:bg-royal" />
+                <div className="flex items-center justify-between gap-3">
+                  <span className="h-2 w-12 rounded-full bg-mist transition group-hover:w-16 group-hover:bg-royal" />
+                </div>
                 <div>
-                  <h3 className="text-lg font-bold text-night transition group-hover:text-royal">
+                  <h3 className="text-lg font-bold text-paper transition group-hover:text-mist">
                     {category.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-ink-muted">
+                  <p className="mt-3 text-sm leading-6 text-paper/60">
                     {category.description}
                   </p>
                 </div>
