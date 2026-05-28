@@ -1,3 +1,5 @@
+//carga la pag de cada categoria
+
 import { notFound } from "next/navigation";
 import MovieListPage from "@/components/MovieListPage";
 import { getMovieCategoryBySlug, movieCategories } from "@/lib/tmdb";

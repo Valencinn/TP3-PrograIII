@@ -4,9 +4,11 @@ export const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 export const BACKDROP_URL = "https://image.tmdb.org/t/p/original";
 export const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
+//para setearle la api key a cada endpoint, para no repetirlo
 const withApiKey = (path) =>
   `${API_URL}${path}?api_key=${API_KEY}&language=es-ES`;
 
+//endpoints!!
 export const movieEndpoints = {
   trending: withApiKey("/trending/movie/day"),
   popular: withApiKey("/movie/popular"),
@@ -15,6 +17,7 @@ export const movieEndpoints = {
   upcoming: withApiKey("/movie/upcoming"),
 };
 
+//.slug es la parte de la url que identifica a cada categoria
 export const movieCategories = [
   {
     key: "trending",
@@ -53,6 +56,7 @@ export const movieCategories = [
   },
 ];
 
+//con el slug de la url, obtenemos la categoria correspondiente
 export const getMovieCategoryBySlug = (slug) =>
   movieCategories.find((category) => category.slug === slug);
 

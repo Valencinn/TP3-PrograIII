@@ -824,3 +824,25 @@ El trabajo debe demostrar que el estudiante puede:
 - Renderizar listados dinámicos.
 - Crear una página de detalle usando un `id`.
 - Separar la interfaz en componentes reutilizables.
+
+
+
+##Comentarios mios
+
+Nombre del proyecto: Frame
+Descripción: Sitio web desarrollado con el proposito de aprender/mejorar mis conocimientos de next.js, tailwind, react, js, jsx, etc.
+
+Tecnologías utilizadas: tailwind, next.js, react, jsx, js.
+
+Endpoints utilizados: trending, popular, top rated, now playing y upcoming.
+
+Capturas de pantalla
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+Declaración de uso de IA
+
+Para el setteo del environment, me tiraba errores por algo d euna version de next.js que no entendia porque.
+
+Con algunos estilos de tailwind

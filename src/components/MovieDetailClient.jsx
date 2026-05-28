@@ -59,7 +59,6 @@ export default function MovieDetailClient({ id }) {
       <main className="min-h-screen px-5 py-10 text-paper">
         <div className="mx-auto w-full max-w-6xl">
           <ErrorMessage>{error}</ErrorMessage>
-          <BackLink />
         </div>
       </main>
     );
@@ -100,7 +99,6 @@ export default function MovieDetailClient({ id }) {
             className="w-full max-w-[240px] rounded-lg border border-line object-cover shadow-2xl shadow-black/40"
           />
           <div className="flex flex-col justify-center gap-5">
-            <BackLink light />
             <div>
               <h1 className="text-4xl font-black tracking-normal md:text-6xl">
                 {movie.title}
@@ -171,17 +169,4 @@ function DetailItem({ label, value }) {
   );
 }
 
-//componente paara vooler atras
-function BackLink({ light = false }) {
-  return (
-    <Link
-      href="/"
-      className={`inline-flex w-fit items-center rounded-md px-3 py-2 text-sm font-semibold transition ${light
-        ? "bg-paper/10 text-paper hover:bg-paper/20"
-        : "mt-4 bg-paper text-night hover:bg-mist"
-        }`}
-    >
-      Volver al inicio
-    </Link>
-  );
-}
+/*le saque lo de volver atras porq me parece ridiculo que se use eso, nadie lo usa todos usan flecha para atras*/

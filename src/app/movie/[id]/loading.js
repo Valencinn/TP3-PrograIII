@@ -1,3 +1,5 @@
+//loading message mientras carga la informacion de la pelicula
+
 import LoadingMessage from "@/components/LoadingMessage";
 
 export default function Loading() {

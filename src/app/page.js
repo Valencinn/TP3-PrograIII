@@ -1,3 +1,5 @@
+//home!
+
 import Link from "next/link";
 import HomeTrending from "@/components/HomeTrending";
 import { movieCategories } from "@/lib/tmdb";
