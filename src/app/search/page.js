@@ -13,12 +13,8 @@ export default async function SearchPage({ searchParams }) {
             Buscador
           </p>
           <h1 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-            Encontrar peliculas
+            Encuentra tu pelicula favorita
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-paper/75">
-            Usa el buscador para encontrar titulos de TMDB y abrir su ficha con
-            un click.
-          </p>
         </div>
       </section>
 
