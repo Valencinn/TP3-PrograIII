@@ -18,8 +18,8 @@ export default function MovieCard({ movie, variant = "light" }) {
       href={`/movie/${movie.id}`}
       aria-label={`Ver detalle de ${movie.title}`}
       className={`group relative block aspect-[2/3] overflow-hidden rounded-lg border outline-none transition duration-300 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-mist ${isDark
-          ? "border-paper/10 bg-surface shadow-xl shadow-black/25 hover:border-mist/70"
-          : "border-paper/10 bg-surface shadow-xl shadow-black/20 hover:border-mist/70"
+        ? "border-paper/10 bg-surface shadow-xl shadow-black/25 hover:border-mist/70"
+        : "border-paper/10 bg-surface shadow-xl shadow-black/20 hover:border-mist/70"
         }`}
     >
       <Image

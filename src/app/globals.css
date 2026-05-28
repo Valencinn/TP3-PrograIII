@@ -56,6 +56,7 @@ html {
   scroll-behavior: smooth;
 }
 
---para que el scrollbar quede con los colores de la pagina xq blanco es mucho contraste * {
+/*para cambiar el colod de la scrollbar :D*/
+* {
   scrollbar-color: var(--mist) var(--night);
 }
