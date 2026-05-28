@@ -56,6 +56,6 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
+--para que el scrollbar quede con los colores de la pagina xq blanco es mucho contraste * {
   scrollbar-color: var(--mist) var(--night);
 }
